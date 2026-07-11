@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c4y17w4iahaad"]
+
+[ext_resource type="Script" uid="uid://codbs0d2fvbme" path="res://Components/Fish/spawner.gd" id="1_kvlks"]
+[ext_resource type="PackedScene" uid="uid://cf1ui7gdpefdn" path="res://Components/Fish/Koi_Fish.tscn" id="2_2excr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67aiy"]
+size = Vector2(1016, 512)
+
+[node name="Spawner" type="Node2D" unique_id=585956034]
+script = ExtResource("1_kvlks")
+Entity = ExtResource("2_2excr")
+
+[node name="Timer" type="Timer" parent="." unique_id=1370624307]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1177488630]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1063863332]
+position = Vector2(507, 252)
+shape = SubResource("RectangleShape2D_67aiy")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
