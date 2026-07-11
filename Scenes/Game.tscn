@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://blxkvq266qa5n"]
+
+[ext_resource type="PackedScene" uid="uid://701h21wy471f" path="res://Components/PlayerBatter/batter.tscn" id="1_gl6un"]
+[ext_resource type="Texture2D" uid="uid://dyqsw1ik7e8xo" path="res://Assets/icon.svg" id="1_iukft"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67aiy"]
+size = Vector2(331, 91)
+
+[node name="Game" type="Node2D" unique_id=1357558454]
+
+[node name="Batter" parent="." unique_id=1129787818 instance=ExtResource("1_gl6un")]
+position = Vector2(514, 237)
+
+[node name="Stadium" type="StaticBody2D" parent="." unique_id=657419564]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stadium" unique_id=15743972]
+position = Vector2(528, 327)
+shape = SubResource("RectangleShape2D_67aiy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stadium/CollisionShape2D" unique_id=1663774788]
+position = Vector2(1.0000038, 0.49999523)
+scale = Vector2(2.609375, 0.72656244)
+texture = ExtResource("1_iukft")
