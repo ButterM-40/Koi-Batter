@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://701h21wy471f" path="res://Components/PlayerBatter/batter.tscn" id="1_gl6un"]
 [ext_resource type="Texture2D" uid="uid://72y3hsdw5tqv" path="res://Assets/stage.png" id="2_gl6un"]
+[ext_resource type="PackedScene" uid="uid://cqtj6s4qumyy4" path="res://Components/Stage/StageString.tscn" id="3_j5yw3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gl6un"]
 distance = 26.0
@@ -22,3 +23,11 @@ shape = SubResource("WorldBoundaryShape2D_gl6un")
 
 [node name="Sprite2D" type="Sprite2D" parent="Stadium/CollisionShape2D" unique_id=1663774788]
 texture = ExtResource("2_gl6un")
+
+[node name="StageString" parent="." unique_id=1508800955 instance=ExtResource("3_j5yw3")]
+position = Vector2(174, 316)
+scale = Vector2(4, 4)
+
+[node name="StageString2" parent="." unique_id=1455923313 instance=ExtResource("3_j5yw3")]
+position = Vector2(857, 337)
+scale = Vector2(4, 4)

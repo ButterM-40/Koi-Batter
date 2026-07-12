@@ -175,7 +175,6 @@ radius = 12.5299635
 height = 34.795235
 
 [sub_resource type="Animation" id="Animation_j6575"]
-length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -235,6 +234,7 @@ effect_animated = NodePath("AnimationPlayer")
 modulate = Color(1, 1, 1, 0)
 sprite_frames = SubResource("SpriteFrames_67aiy")
 animation = &"appear"
+frame_progress = 0.78273964
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=143011744]
 
