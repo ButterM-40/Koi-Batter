@@ -53,7 +53,6 @@ func _on_jump_timer_timeout() -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if fish_animated.animation == "fish_jump":
-		position.y = 0
 		Hitbox.set_deferred("monitoring", true)
 		is_falling = true
 		rotation_speed = randf_range(-2.0, 2.0)

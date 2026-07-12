@@ -20,6 +20,7 @@ scale = Vector2(4, 4)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stadium" unique_id=15743972]
 position = Vector2(-0.25, 55)
 shape = SubResource("WorldBoundaryShape2D_gl6un")
+debug_color = Color(0, 0.6, 0.69803923, 0.39215687)
 
 [node name="Sprite2D" type="Sprite2D" parent="Stadium/CollisionShape2D" unique_id=1663774788]
 texture = ExtResource("2_gl6un")
