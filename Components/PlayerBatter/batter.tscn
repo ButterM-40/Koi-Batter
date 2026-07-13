@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://3asrpwwjfdln" path="res://Components/PlayerBatter/batter.gd" id="1_6ltoc"]
 [ext_resource type="Texture2D" uid="uid://bcxkjvh2022id" path="res://Assets/batter-Sheet.png" id="2_mbgni"]
-[ext_resource type="Texture2D" uid="uid://dyqsw1ik7e8xo" path="res://Assets/icon.svg" id="2_txnb3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7mu2e"]
 atlas = ExtResource("2_mbgni")
@@ -70,7 +69,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"hit",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -106,6 +105,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rghuq"]
+radius = 4.077821
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_67aiy"]
 
 [node name="Batter" type="CharacterBody2D" unique_id=1129787818]
@@ -117,12 +119,31 @@ position = Vector2(1, -10)
 sprite_frames = SubResource("SpriteFrames_tomj7")
 animation = &"hit"
 autoplay = "stand"
+frame = 6
+frame_progress = 1.0
 
-[node name="Icon" type="Sprite2D" parent="AnimationPlayer" unique_id=1439093940]
-visible = false
-position = Vector2(0.5, 1.9073486e-06)
-scale = Vector2(0.1484375, 0.23437503)
-texture = ExtResource("2_txnb3")
+[node name="BatRight" type="Area2D" parent="AnimationPlayer" unique_id=1147826304 groups=["bat"]]
+unique_name_in_owner = true
+position = Vector2(-1, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimationPlayer/BatRight" unique_id=227835276]
+position = Vector2(16, -3)
+rotation = 1.4741651
+shape = SubResource("CapsuleShape2D_rghuq")
+debug_color = Color(0.9499268, 0.22636533, 0, 0.41960785)
+
+[node name="BatLeft" type="Area2D" parent="AnimationPlayer" unique_id=145361550 groups=["bat"]]
+unique_name_in_owner = true
+position = Vector2(-1, 8.000001)
+rotation = -2.9670596
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimationPlayer/BatLeft" unique_id=649370628]
+position = Vector2(16, -3)
+rotation = 1.4741651
+shape = SubResource("CapsuleShape2D_rghuq")
+debug_color = Color(0.9499268, 0.22636533, 0, 0.41960785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=662044730]
 shape = SubResource("CapsuleShape2D_67aiy")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

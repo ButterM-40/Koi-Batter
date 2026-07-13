@@ -20,6 +20,10 @@ window/size/viewport_width=1024
 window/size/viewport_height=896
 window/stretch/mode="viewport"
 
+[global_group]
+
+bat="Bat Hitbox"
+
 [input]
 
 Left={

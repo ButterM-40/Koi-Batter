@@ -150,7 +150,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8ijwk")
 }],
-"loop": 1,
+"loop": 2,
 "name": &"fish_hit",
 "speed": 5.0
 }, {
@@ -233,8 +233,7 @@ effect_animated = NodePath("AnimationPlayer")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1772974264]
 modulate = Color(1, 1, 1, 0)
 sprite_frames = SubResource("SpriteFrames_67aiy")
-animation = &"appear"
-frame_progress = 0.78273964
+animation = &"fish_hit"
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=143011744]
 

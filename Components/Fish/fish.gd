@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 		time_elapsed += delta   # advance time so sin() actually changes
 		position.x = start_x + sin(time_elapsed * wave_frequency) * wave_amplitude
 		position.y += move_speed * delta
-	if is_falling:
+	if is_falling and !is_knocked:
 		action_falling(delta)
 	if is_knocked:
 		knock_vel.y += gravity * delta  # gravity still pulls it back down
@@ -52,7 +52,7 @@ func _on_jump_timer_timeout() -> void:
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	if fish_animated.animation == "fish_jump":
+	if fish_animated.animation == "fish_jump" and !is_knocked:
 		Hitbox.set_deferred("monitoring", true)
 		is_falling = true
 		rotation_speed = randf_range(-2.0, 2.0)
@@ -75,6 +75,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	pass
 
 func _on_hit_by_bat(bat: Area2D) -> void:
+	Hitbox.set_deferred("monitoring", false)
 	fish_animated.play("fish_hit")
 	is_falling = false
 	var hit_direction: Vector2 = (global_position - bat.global_position).normalized()
