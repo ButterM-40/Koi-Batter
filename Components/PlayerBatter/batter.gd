@@ -7,9 +7,18 @@ extends CharacterBody2D
 @onready var bat_hitbox_right = $AnimationPlayer/BatRight
 @onready var bat_hitbox_left = $AnimationPlayer/BatLeft
 @onready var animationplayer = $AnimationPlayer 
+@onready var player_sfx = $PlayerEffects
 var is_hit : bool = false
 var is_hit_right : bool = false
 var is_hit_left : bool = false
+var is_sfx : bool = false
+
+#Audio Preloads
+var jump_audio = preload("res://Audio/SFX/SFX_jump.wav")
+var bar_swings = [
+	preload("res://Audio/SFX/Bat_Swing1.wav"), 
+	preload("res://Audio/SFX/Bat_Swing2.wav"),
+	preload("res://Audio/SFX/Bat_Swing3.wav")]
 
 
 func _ready() -> void:
@@ -24,7 +33,8 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		
+		player_sfx.stream = jump_audio
+		player_sfx.play()
 	
 
 	# Get the input direction and handle the movement/deceleration.
@@ -50,6 +60,14 @@ func _physics_process(delta: float) -> void:
 	
 func action_hit(face) -> void:
 	is_hit = true
+	
+	if !is_sfx:
+		is_sfx = true
+		var player = AudioStreamPlayer.new()
+		add_child(player)
+		player.stream = bar_swings[randf_range(0,2)]
+		player.play()
+		player.finished.connect(player.queue_free)
 	if face:
 		bat_hitbox_left.set_deferred("monitorable", true)
 		is_hit_left = true
@@ -77,7 +95,9 @@ func _on_animation_player_animation_finished() -> void:
 		is_hit = false
 		is_hit_right = false
 		is_hit_left = false
+		is_sfx = false
 		bat_hitbox_right.set_deferred("monitorable", false)
 		bat_hitbox_left.set_deferred("monitorable", false)
+
 		
 	pass # Replace with function body.

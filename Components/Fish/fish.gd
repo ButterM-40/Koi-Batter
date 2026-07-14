@@ -20,6 +20,9 @@ var is_falling: bool = false
 var knock_vel: Vector2 = Vector2.ZERO
 var is_knocked: bool = false
 
+var hit_normal = preload("res://Audio/SFX/SFX_hit.wav")
+var hit_success = preload("res://Audio/SFX/SFX_hitSuccess.wav")
+
 func _ready() -> void:
 	start_x = position.x
 	Hitbox.set_deferred("monitoring", false)
@@ -81,6 +84,11 @@ func _on_hit_by_bat(bat: Area2D) -> void:
 	var hit_direction: Vector2 = (global_position - bat.global_position).normalized()
 	hit_direction.y += knockback_upward_bias
 	hit_direction = hit_direction.normalized()
+	var hitfish = AudioStreamPlayer.new()
+	add_child(hitfish)
+	hitfish.stream = hit_success
+	hitfish.play()
+	hitfish.finished.connect(hitfish.queue_free)
 	
 	knock_vel = hit_direction * knockback_force
 	is_knocked = true
