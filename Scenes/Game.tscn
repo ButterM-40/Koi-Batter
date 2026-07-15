@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bqp0qecp14b5w" path="res://Assets/fahne-Sheet.png" id="4_2irst"]
 [ext_resource type="PackedScene" uid="uid://c4y17w4iahaad" path="res://Components/Fish/spawner.tscn" id="4_kldst"]
 [ext_resource type="AudioStream" uid="uid://cmev88kikmt0w" path="res://Audio/MUSIC/koibatter_demotheme.wav" id="5_b2bpf"]
+[ext_resource type="Script" uid="uid://dliiuwxh68w5s" path="res://Scenes/score.gd" id="9_bf53h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bf53h"]
 size = Vector2(234.5, 10.5)
@@ -213,6 +214,20 @@ position = Vector2(507, 24)
 scale = Vector2(18.877922, 0.36541462)
 stream = ExtResource("5_b2bpf")
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1485315109]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1029287606]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_vertical = 4
+text = "SCORE: 0"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("9_bf53h")
 
 [connection signal="area_entered" from="Stadium/FloorDetection" to="Stadium" method="_on_floor_detection_area_entered"]
 
