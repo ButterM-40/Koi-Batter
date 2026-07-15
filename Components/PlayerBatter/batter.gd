@@ -35,6 +35,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		player_sfx.stream = jump_audio
 		player_sfx.play()
+		
+	
 	
 
 	# Get the input direction and handle the movement/deceleration.
@@ -53,10 +55,18 @@ func _physics_process(delta: float) -> void:
 
 	if direction < 0:
 		animationplayer.flip_h = true
+		$EffectSprite2D.flip_h = true
+		$EffectSprite2D.position.x = -16
 	if direction > 0:
 		animationplayer.flip_h = false
+		$EffectSprite2D.flip_h = false
+		$EffectSprite2D.position.x = 16
 	if Input.is_action_just_pressed("Hit"):
 		action_hit(animationplayer.flip_h)
+	
+	if Input.is_action_pressed("N"):
+		N()
+		is_hit = true
 	
 func action_hit(face) -> void:
 	is_hit = true
@@ -71,10 +81,13 @@ func action_hit(face) -> void:
 	if face:
 		bat_hitbox_left.set_deferred("monitorable", true)
 		is_hit_left = true
+		
 	else:
 		bat_hitbox_right.set_deferred("monitorable", true)
 		is_hit_right = true
+		
 	animationplayer.play("hit")
+	$EffectSprite2D.play("hitR")
 
 	
 func animation_tree(direction) -> void:
@@ -98,6 +111,13 @@ func _on_animation_player_animation_finished() -> void:
 		is_sfx = false
 		bat_hitbox_right.set_deferred("monitorable", false)
 		bat_hitbox_left.set_deferred("monitorable", false)
+	if animationplayer.animation == "n":
+		is_hit = false
 
 		
 	pass # Replace with function body.
+
+func N() -> void:
+	animationplayer.play("n")
+	
+	
