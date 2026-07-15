@@ -163,10 +163,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rghuq"]
-radius = 18.784357
-height = 46.882126
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_67aiy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p2jag"]
@@ -262,6 +258,10 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rghuq"]
+radius = 18.784357
+height = 46.882126
+
 [node name="Batter" type="CharacterBody2D" unique_id=1129787818]
 script = ExtResource("1_6ltoc")
 JUMP_VELOCITY = -800.0
@@ -272,37 +272,35 @@ sprite_frames = SubResource("SpriteFrames_tomj7")
 animation = &"n"
 autoplay = "stand"
 
-[node name="BatRight" type="Area2D" parent="AnimationPlayer" unique_id=1147826304 groups=["bat"]]
-unique_name_in_owner = true
-position = Vector2(-1, 10)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimationPlayer/BatRight" unique_id=227835276]
-position = Vector2(19.000002, -7)
-rotation = 1.4741651
-shape = SubResource("CapsuleShape2D_rghuq")
-debug_color = Color(0.9499268, 0.22636533, 0, 0.41960785)
-
-[node name="BatLeft" type="Area2D" parent="AnimationPlayer" unique_id=145361550 groups=["bat"]]
-unique_name_in_owner = true
-position = Vector2(-1, 8.000001)
-rotation = -2.9670596
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimationPlayer/BatLeft" unique_id=649370628]
-position = Vector2(20.390747, 0.46626568)
-rotation = 1.4741651
-shape = SubResource("CapsuleShape2D_rghuq")
-debug_color = Color(0.9499268, 0.22636533, 0, 0.41960785)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=662044730]
 shape = SubResource("CapsuleShape2D_67aiy")
 
 [node name="PlayerEffects" type="AudioStreamPlayer2D" parent="." unique_id=34666897]
-bus = &"SFX"
 
 [node name="EffectSprite2D" type="AnimatedSprite2D" parent="." unique_id=241251769]
 modulate = Color(18.892157, 18.892157, 18.892157, 0.77254903)
 position = Vector2(16, 0)
 sprite_frames = SubResource("SpriteFrames_nn1ml")
 animation = &"hitR"
+
+[node name="BatRight" type="Area2D" parent="." unique_id=1147826304 groups=["bat"]]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatRight" unique_id=227835276]
+position = Vector2(19.000002, -7)
+rotation = 1.4741651
+shape = SubResource("CapsuleShape2D_rghuq")
+debug_color = Color(0.9499268, 0.22636533, 0, 0.41960785)
+
+[node name="BatLeft" type="Area2D" parent="." unique_id=145361550 groups=["bat"]]
+unique_name_in_owner = true
+position = Vector2(0, -1.999999)
+rotation = -2.9670596
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatLeft" unique_id=649370628]
+position = Vector2(20.390747, 0.46626568)
+rotation = 1.4741651
+shape = SubResource("CapsuleShape2D_rghuq")
+debug_color = Color(0.9499268, 0.22636533, 0, 0.41960785)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

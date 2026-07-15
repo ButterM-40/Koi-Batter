@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b60r4s15ae7j7" path="res://Components/Stage/stage_string.gd" id="1_ruabr"]
 [ext_resource type="Texture2D" uid="uid://ctmo765yucv4g" path="res://Assets/string-Sheet.png" id="1_yqx0y"]
+[ext_resource type="Texture2D" uid="uid://djfuw2sfhupor" path="res://Assets/ring1-Sheet.png" id="3_ltctf"]
+[ext_resource type="Texture2D" uid="uid://ddqabqn8jmbef" path="res://Assets/ring2-Sheet.png" id="4_bn3s3"]
+[ext_resource type="Texture2D" uid="uid://brbr0k7rua4jg" path="res://Assets/ring3-Sheet.png" id="5_kjvir"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ruabr"]
 atlas = ExtResource("1_yqx0y")
@@ -42,6 +45,10 @@ region = Rect2(256, 0, 32, 224)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lpsrd"]
 atlas = ExtResource("1_yqx0y")
 region = Rect2(288, 0, 32, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pcd6"]
+atlas = ExtResource("5_kjvir")
+region = Rect2(0, 0, 32, 6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yqx0y"]
 atlas = ExtResource("1_yqx0y")
@@ -176,6 +183,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7pcd6")
+}],
+"loop": 1,
+"name": &"nothing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_yqx0y")
 }, {
 "duration": 1.0,
@@ -210,11 +225,116 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_35bba"]
+atlas = ExtResource("3_ltctf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myiws"]
+atlas = ExtResource("3_ltctf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyuf7"]
+atlas = ExtResource("5_kjvir")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd1pe"]
+atlas = ExtResource("5_kjvir")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry02m"]
+atlas = ExtResource("4_bn3s3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt1o8"]
+atlas = ExtResource("4_bn3s3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el4pu"]
+atlas = ExtResource("3_ltctf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nb3a"]
+atlas = ExtResource("5_kjvir")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0otjj"]
+atlas = ExtResource("4_bn3s3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_67aiy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35bba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myiws")
+}],
+"loop": 0,
+"name": &"break1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyuf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd1pe")
+}],
+"loop": 0,
+"name": &"break2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry02m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt1o8")
+}],
+"loop": 0,
+"name": &"break3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_el4pu")
+}],
+"loop": 1,
+"name": &"default1",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nb3a")
+}],
+"loop": 1,
+"name": &"default2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0otjj")
+}],
+"loop": 1,
+"name": &"default3",
+"speed": 5.0
+}]
+
 [node name="StageString" type="Node2D" unique_id=1508800955]
 script = ExtResource("1_ruabr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=246185298]
 modulate = Color(1, 1, 1, 0.3372549)
 sprite_frames = SubResource("SpriteFrames_nn1ml")
+animation = &"rip"
 autoplay = "default"
-frame_progress = 0.7297992
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=324545377]
+position = Vector2(0, 112)
+scale = Vector2(1.0112907, 1)
+sprite_frames = SubResource("SpriteFrames_67aiy")
+animation = &"break3"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2D2" to="." method="_on_animated_sprite_2d_2_animation_finished"]

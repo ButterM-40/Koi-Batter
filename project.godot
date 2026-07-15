@@ -14,6 +14,10 @@ config/name="Koi Batter"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://b4sbeuiwfuf5v"
+
 [display]
 
 window/size/viewport_width=1024
@@ -23,6 +27,7 @@ window/stretch/mode="viewport"
 [global_group]
 
 bat="Bat Hitbox"
+fish=""
 
 [input]
 

@@ -4,8 +4,8 @@ extends CharacterBody2D
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 
-@onready var bat_hitbox_right = $AnimationPlayer/BatRight
-@onready var bat_hitbox_left = $AnimationPlayer/BatLeft
+@onready var bat_hitbox_right = $BatRight
+@onready var bat_hitbox_left = $BatLeft
 @onready var animationplayer = $AnimationPlayer 
 @onready var player_sfx = $PlayerEffects
 var is_hit : bool = false
@@ -22,8 +22,9 @@ var bar_swings = [
 
 
 func _ready() -> void:
-	bat_hitbox_right.set_deferred("monitorable", false)
-	bat_hitbox_left.set_deferred("monitorable", false)
+	pass
+	#bat_hitbox_right.set_deferred("monitorable", false)
+	#bat_hitbox_left.set_deferred("monitorable", false)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -79,11 +80,8 @@ func action_hit(face) -> void:
 		player.play()
 		player.finished.connect(player.queue_free)
 	if face:
-		bat_hitbox_left.set_deferred("monitorable", true)
 		is_hit_left = true
-		
 	else:
-		bat_hitbox_right.set_deferred("monitorable", true)
 		is_hit_right = true
 		
 	animationplayer.play("hit")
@@ -109,8 +107,8 @@ func _on_animation_player_animation_finished() -> void:
 		is_hit_right = false
 		is_hit_left = false
 		is_sfx = false
-		bat_hitbox_right.set_deferred("monitorable", false)
-		bat_hitbox_left.set_deferred("monitorable", false)
+		#at_hitbox_right.set_deferred("monitorable", false)
+		#t_hitbox_left.set_deferred("monitorable", false)
 	if animationplayer.animation == "n":
 		is_hit = false
 

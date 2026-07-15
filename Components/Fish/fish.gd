@@ -45,8 +45,18 @@ func _process(delta: float) -> void:
 		knock_vel.y += gravity * delta  # gravity still pulls it back down
 		position += knock_vel * delta
 		rotation += rotation_speed * delta
+		
 		#position += move_direction.normalized() * move_speed * delta
-	
+	if Hitbox.monitoring:
+		for area in Hitbox.get_overlapping_areas():
+			if not area.is_in_group("bat"):
+				continue
+			var player = area.get_parent()
+			if (area == player.bat_hitbox_right and player.is_hit_right) \
+			or (area == player.bat_hitbox_left and player.is_hit_left):
+				_on_hit_by_bat(area)
+				break
+
 
 func _on_jump_timer_timeout() -> void:
 	is_moving = false
@@ -70,7 +80,8 @@ func action_falling(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bat"):
-		_on_hit_by_bat(area)
+		pass
+		#_on_hit_by_bat(area)
 	if area.is_in_group("Player"):
 		pass
 	if area.is_in_group("Stage"):
