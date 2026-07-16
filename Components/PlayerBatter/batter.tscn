@@ -50,19 +50,19 @@ region = Rect2(750, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wixju"]
 atlas = ExtResource("2_mbgni")
-region = Rect2(300, 0, 50, 50)
+region = Rect2(400, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8xxeg"]
 atlas = ExtResource("2_mbgni")
-region = Rect2(350, 0, 50, 50)
+region = Rect2(450, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5kh3o"]
 atlas = ExtResource("2_mbgni")
-region = Rect2(400, 0, 50, 50)
+region = Rect2(500, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgkde"]
 atlas = ExtResource("2_mbgni")
-region = Rect2(450, 0, 50, 50)
+region = Rect2(550, 0, 50, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tomj7"]
 animations = [{
@@ -259,8 +259,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rghuq"]
-radius = 18.784357
-height = 46.882126
+radius = 15.03233
+height = 32.058594
 
 [node name="Batter" type="CharacterBody2D" unique_id=1129787818]
 script = ExtResource("1_6ltoc")
@@ -269,8 +269,9 @@ JUMP_VELOCITY = -800.0
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="." unique_id=422305795]
 position = Vector2(1, -10)
 sprite_frames = SubResource("SpriteFrames_tomj7")
-animation = &"n"
+animation = &"run"
 autoplay = "stand"
+frame_progress = 0.23993558
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=662044730]
 shape = SubResource("CapsuleShape2D_67aiy")
@@ -287,7 +288,7 @@ animation = &"hitR"
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatRight" unique_id=227835276]
-position = Vector2(19.000002, -7)
+position = Vector2(16.000002, -7.0000005)
 rotation = 1.4741651
 shape = SubResource("CapsuleShape2D_rghuq")
 debug_color = Color(0.9499268, 0.22636533, 0, 0.41960785)
@@ -298,7 +299,7 @@ position = Vector2(0, -1.999999)
 rotation = -2.9670596
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatLeft" unique_id=649370628]
-position = Vector2(20.390747, 0.46626568)
+position = Vector2(16.451519, 1.1608588)
 rotation = 1.4741651
 shape = SubResource("CapsuleShape2D_rghuq")
 debug_color = Color(0.9499268, 0.22636533, 0, 0.41960785)
