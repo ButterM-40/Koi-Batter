@@ -201,14 +201,6 @@ region = Rect2(320, 0, 64, 64)
 atlas = ExtResource("3_mbgni")
 region = Rect2(384, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yog0a"]
-atlas = ExtResource("3_mbgni")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gkyek"]
-atlas = ExtResource("3_mbgni")
-region = Rect2(512, 0, 64, 64)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_nn1ml"]
 animations = [{
 "frames": [{
@@ -246,12 +238,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t62ss")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yog0a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gkyek")
 }],
 "loop": 0,
 "name": &"hitR",
@@ -269,9 +255,10 @@ JUMP_VELOCITY = -800.0
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="." unique_id=422305795]
 position = Vector2(1, -10)
 sprite_frames = SubResource("SpriteFrames_tomj7")
-animation = &"run"
+animation = &"hit"
 autoplay = "stand"
-frame_progress = 0.23993558
+frame = 3
+frame_progress = 0.5070266
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=662044730]
 shape = SubResource("CapsuleShape2D_67aiy")
@@ -279,8 +266,8 @@ shape = SubResource("CapsuleShape2D_67aiy")
 [node name="PlayerEffects" type="AudioStreamPlayer2D" parent="." unique_id=34666897]
 
 [node name="EffectSprite2D" type="AnimatedSprite2D" parent="." unique_id=241251769]
-modulate = Color(18.892157, 18.892157, 18.892157, 0.77254903)
-position = Vector2(16, 0)
+modulate = Color(1, 1, 1, 0.77254903)
+position = Vector2(16, -2)
 sprite_frames = SubResource("SpriteFrames_nn1ml")
 animation = &"hitR"
 
@@ -288,7 +275,7 @@ animation = &"hitR"
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatRight" unique_id=227835276]
-position = Vector2(16.000002, -7.0000005)
+position = Vector2(11, -2)
 rotation = 1.4741651
 shape = SubResource("CapsuleShape2D_rghuq")
 debug_color = Color(0.9499268, 0.22636533, 0, 0.41960785)
@@ -299,7 +286,7 @@ position = Vector2(0, -1.999999)
 rotation = -2.9670596
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatLeft" unique_id=649370628]
-position = Vector2(16.451519, 1.1608588)
+position = Vector2(11.644045, -3.0685868)
 rotation = 1.4741651
 shape = SubResource("CapsuleShape2D_rghuq")
 debug_color = Color(0.9499268, 0.22636533, 0, 0.41960785)
