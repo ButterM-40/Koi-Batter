@@ -17,3 +17,6 @@ func _on_floor_detection_area_entered(area: Area2D) -> void:
 			floor_anim.play("default")
 			var target = available[randi_range(0, available.size() - 1)]
 			target._break()
+		if available.size() == 0:
+			$"../CanvasLayer/GameOver".visible = true
+			

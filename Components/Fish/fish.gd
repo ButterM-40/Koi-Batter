@@ -27,6 +27,7 @@ var hit_success = preload("res://Audio/SFX/SFX_hitSuccess.wav")
 func _ready() -> void:
 	start_x = position.x
 	Hitbox.set_deferred("monitoring", false)
+	z_index = -200
 	_fish_spawning()
 
 func _fish_spawning() -> void:
@@ -36,7 +37,7 @@ func _fish_spawning() -> void:
 	JumpTimer.start()
 	
 func _process(delta: float) -> void:
-	if is_moving:
+	if is_moving:		
 		time_elapsed += delta   # advance time so sin() actually changes
 		position.x = start_x + sin(time_elapsed * wave_frequency) * wave_amplitude
 		position.y += move_speed * delta
@@ -67,6 +68,7 @@ func _on_jump_timer_timeout() -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	imin = true
+	z_index = -1
 	if fish_animated.animation == "fish_jump" and !is_knocked:
 		Hitbox.set_deferred("monitoring", true)
 		is_falling = true
