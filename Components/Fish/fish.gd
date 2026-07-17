@@ -19,6 +19,7 @@ var is_moving: bool = false
 var is_falling: bool = false
 var knock_vel: Vector2 = Vector2.ZERO
 var is_knocked: bool = false
+var imin: bool = false
 
 var hit_normal = preload("res://Audio/SFX/SFX_hit.wav")
 var hit_success = preload("res://Audio/SFX/SFX_hitSuccess.wav")
@@ -65,6 +66,7 @@ func _on_jump_timer_timeout() -> void:
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
+	imin = true
 	if fish_animated.animation == "fish_jump" and !is_knocked:
 		Hitbox.set_deferred("monitoring", true)
 		is_falling = true
@@ -73,7 +75,10 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	pass # Replace with function body.
 	
 func action_falling(delta: float) -> void:
-	fish_animated.play("default")
+	if imin == false:
+		fish_animated.play("fish_jump")
+	if imin == true:
+		fish_animated.play("default")
 	fall_velocity += gravity * delta
 	position.y += fall_velocity * delta
 	rotation += rotation_speed * delta

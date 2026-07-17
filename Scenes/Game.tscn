@@ -335,9 +335,10 @@ shape = SubResource("RectangleShape2D_bf53h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stadium/FloorDetection" unique_id=897979644]
 position = Vector2(0, 20)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_67aiy")
-animation = &"none"
+frame = 12
+frame_progress = 1.0
 
 [node name="FloorStage" type="CollisionShape2D" parent="Stadium" unique_id=15743972]
 position = Vector2(-0.25, 55)
@@ -345,6 +346,7 @@ shape = SubResource("WorldBoundaryShape2D_gl6un")
 debug_color = Color(0, 0.6, 0.69803923, 0.39215687)
 
 [node name="Sprite2D" type="Sprite2D" parent="Stadium/FloorStage" unique_id=1663774788]
+z_index = 5
 texture = ExtResource("2_gl6un")
 
 [node name="stadiumBG" type="Node2D" parent="Stadium" unique_id=1783774600]

@@ -233,7 +233,9 @@ effect_animated = NodePath("AnimationPlayer")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1772974264]
 modulate = Color(1, 1, 1, 0)
 sprite_frames = SubResource("SpriteFrames_67aiy")
-animation = &"fish_hit"
+animation = &"fish_jump"
+frame = 1
+frame_progress = 1.0
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=143011744 groups=["fish"]]
 
