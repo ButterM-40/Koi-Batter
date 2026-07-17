@@ -18,6 +18,10 @@ config/icon="res://Assets/icon.svg"
 
 buses/default_bus_layout="uid://b4sbeuiwfuf5v"
 
+[autoload]
+
+Global="*uid://ci7o3klqqpqbr"
+
 [display]
 
 window/size/viewport_width=1024

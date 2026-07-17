@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://701h21wy471f" path="res://Components/PlayerBatter/batter.tscn" id="1_gl6un"]
 [ext_resource type="Script" uid="uid://bw4dvitgxwikk" path="res://Scenes/stadium.gd" id="2_2irst"]
 [ext_resource type="Texture2D" uid="uid://72y3hsdw5tqv" path="res://Assets/stage.png" id="2_gl6un"]
+[ext_resource type="Texture2D" uid="uid://begmg43ncc1es" path="res://Assets/impact-Sheet.png" id="3_3so38"]
 [ext_resource type="Texture2D" uid="uid://crhhrn26tpa5i" path="res://Assets/shop.png" id="3_fgofq"]
 [ext_resource type="PackedScene" uid="uid://cqtj6s4qumyy4" path="res://Components/Stage/StageString.tscn" id="3_j5yw3"]
 [ext_resource type="Texture2D" uid="uid://bqp0qecp14b5w" path="res://Assets/fahne-Sheet.png" id="4_2irst"]
@@ -14,6 +15,117 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bf53h"]
 size = Vector2(234.5, 10.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f4ik"]
+atlas = ExtResource("3_3so38")
+region = Rect2(0, 0, 194, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khs3t"]
+atlas = ExtResource("3_3so38")
+region = Rect2(194, 0, 194, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iyqm"]
+atlas = ExtResource("3_3so38")
+region = Rect2(388, 0, 194, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jn8rg"]
+atlas = ExtResource("3_3so38")
+region = Rect2(582, 0, 194, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umnjm"]
+atlas = ExtResource("3_3so38")
+region = Rect2(776, 0, 194, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4eqlp"]
+atlas = ExtResource("3_3so38")
+region = Rect2(970, 0, 194, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18uti"]
+atlas = ExtResource("3_3so38")
+region = Rect2(1164, 0, 194, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khy6b"]
+atlas = ExtResource("3_3so38")
+region = Rect2(1358, 0, 194, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pti6k"]
+atlas = ExtResource("3_3so38")
+region = Rect2(1552, 0, 194, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmarx"]
+atlas = ExtResource("3_3so38")
+region = Rect2(1746, 0, 194, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7av8l"]
+atlas = ExtResource("3_3so38")
+region = Rect2(1940, 0, 194, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dctr5"]
+atlas = ExtResource("3_3so38")
+region = Rect2(2134, 0, 194, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi7vx"]
+atlas = ExtResource("3_3so38")
+region = Rect2(2328, 0, 194, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2joc"]
+atlas = ExtResource("3_3so38")
+region = Rect2(2328, 0, 194, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_67aiy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f4ik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khs3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0iyqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jn8rg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umnjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4eqlp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18uti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khy6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pti6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmarx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7av8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dctr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi7vx")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 13.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2joc")
+}],
+"loop": 0,
+"name": &"none",
+"speed": 5.0
+}]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gl6un"]
 distance = 26.0
@@ -220,6 +332,12 @@ StringsStage = NodePath("../Strings")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stadium/FloorDetection" unique_id=1396934329]
 position = Vector2(-3, 34.25)
 shape = SubResource("RectangleShape2D_bf53h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stadium/FloorDetection" unique_id=897979644]
+position = Vector2(0, 20)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_67aiy")
+animation = &"none"
 
 [node name="FloorStage" type="CollisionShape2D" parent="Stadium" unique_id=15743972]
 position = Vector2(-0.25, 55)

@@ -5,6 +5,8 @@ extends Node2D
 
 @onready var spawn_area: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var spawn_timer: Timer = $Timer
+
+
 func _ready() -> void:
 	spawn_timer.wait_time = spawn_interval
 	if not spawn_timer.timeout.is_connected(_on_timer_timeout):

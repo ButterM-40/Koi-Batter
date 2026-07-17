@@ -17,6 +17,7 @@ func _ready() -> void:
 	RingAnim.play("default" + str(DefaultInt))
 
 func _break() -> void:
+	has_broken = true
 	RingAnim.play("break" + str(DefaultInt))
 	pass
 

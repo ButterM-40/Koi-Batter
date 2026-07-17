@@ -103,3 +103,5 @@ func _on_hit_by_bat(bat: Area2D) -> void:
 	
 	knock_vel = hit_direction * knockback_force
 	is_knocked = true
+
+	Global.add_score(10)
