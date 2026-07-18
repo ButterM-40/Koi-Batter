@@ -127,8 +127,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gl6un"]
-distance = 26.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3so38"]
+size = Vector2(233.66667, 12.999985)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bf53h"]
 atlas = ExtResource("4_2irst")
@@ -341,13 +341,9 @@ frame = 12
 frame_progress = 1.0
 
 [node name="FloorStage" type="CollisionShape2D" parent="Stadium" unique_id=15743972]
-position = Vector2(-0.25, 55)
-shape = SubResource("WorldBoundaryShape2D_gl6un")
+position = Vector2(-3.5, 34.166656)
+shape = SubResource("RectangleShape2D_3so38")
 debug_color = Color(0, 0.6, 0.69803923, 0.39215687)
-
-[node name="Sprite2D" type="Sprite2D" parent="Stadium/FloorStage" unique_id=1663774788]
-z_index = 5
-texture = ExtResource("2_gl6un")
 
 [node name="stadiumBG" type="Node2D" parent="Stadium" unique_id=1783774600]
 
@@ -372,6 +368,11 @@ position = Vector2(62.25, -1.5)
 sprite_frames = SubResource("SpriteFrames_lc5be")
 autoplay = "default"
 frame_progress = 0.09008803
+
+[node name="Sprite2D" type="Sprite2D" parent="Stadium" unique_id=1663774788]
+z_index = 5
+position = Vector2(-0.25, 55)
+texture = ExtResource("2_gl6un")
 
 [node name="Strings" type="Node" parent="." unique_id=1705686334]
 

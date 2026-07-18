@@ -108,7 +108,7 @@ func _on_hit_by_bat(bat: Area2D) -> void:
 		is_rising = true
 		Global.add_score(30)
 
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(2.0).timeout
 		is_rising = false
 		fall_velocity = 0.0  
 		is_falling = true
