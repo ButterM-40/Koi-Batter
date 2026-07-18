@@ -23,7 +23,10 @@ func _on_floor_detection_area_entered(area: Area2D) -> void:
 			target._break()
 			$AnimationPlayer.play("shakingIsland")
 		if available.size() == 0:
+			$"../CanvasLayer/RichTextLabel".visible=false
 			$"../CanvasLayer/GameOver".visible = true
+			$"../CanvasLayer/YourScore".visible = true
+			$"../CanvasLayer/EndScore".visible = true
 			$AnimationPlayer.play("sinkingIsland")
 			
 

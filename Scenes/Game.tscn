@@ -599,6 +599,7 @@ horizontal_alignment = 1
 script = ExtResource("9_bf53h")
 
 [node name="GameOver" type="RichTextLabel" parent="CanvasLayer" unique_id=1573698595]
+visible = false
 offset_left = 393.0
 offset_top = 290.0
 offset_right = 682.0
@@ -608,6 +609,7 @@ theme_override_font_sizes/normal_font_size = 59
 text = "GAME OVER"
 
 [node name="YourScore" type="RichTextLabel" parent="CanvasLayer" unique_id=109817339]
+visible = false
 offset_left = 287.0
 offset_top = 385.0
 offset_right = 762.0
@@ -618,6 +620,7 @@ text = "your final score"
 horizontal_alignment = 1
 
 [node name="EndScore" type="RichTextLabel" parent="CanvasLayer" unique_id=954071265]
+visible = false
 offset_left = 80.0
 offset_top = 430.0
 offset_right = 969.0
