@@ -10,7 +10,11 @@ func _ready() -> void:
 
 func _on_floor_detection_area_entered(area: Area2D) -> void:
 	if area.is_in_group("fish"):
+		var fish_node = area.owner
+		if fish_node and fish_node.is_hit:
+			return
 		var available = StringsStage.get_children().filter(func(c): return not c.has_broken)
+		
 		if available.size() > 0:
 			var local_x = floor_anim.get_parent().to_local(area.global_position).x
 			floor_anim.position.x = local_x

@@ -317,7 +317,7 @@ animations = [{
 
 [node name="Game" type="Node2D" unique_id=1357558454]
 
-[node name="Batter" parent="." unique_id=1129787818 instance=ExtResource("1_gl6un")]
+[node name="Batter" parent="." unique_id=1129787818 groups=["Player"] instance=ExtResource("1_gl6un")]
 position = Vector2(514, 366)
 scale = Vector2(3, 3)
 
@@ -476,6 +476,8 @@ offset_bottom = 373.0
 theme_override_fonts/normal_font = ExtResource("10_dahhg")
 theme_override_font_sizes/normal_font_size = 59
 text = "GAME OVER"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=546743254]
 
 [connection signal="area_entered" from="Stadium/FloorDetection" to="Stadium" method="_on_floor_detection_area_entered"]
 

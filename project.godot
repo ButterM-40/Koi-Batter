@@ -32,6 +32,7 @@ window/stretch/mode="viewport"
 
 bat="Bat Hitbox"
 fish=""
+Player=""
 
 [input]
 
