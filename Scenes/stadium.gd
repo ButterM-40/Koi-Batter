@@ -21,6 +21,13 @@ func _on_floor_detection_area_entered(area: Area2D) -> void:
 			floor_anim.play("default")
 			var target = available[randi_range(0, available.size() - 1)]
 			target._break()
+			$AnimationPlayer.play("shakingIsland")
 		if available.size() == 0:
 			$"../CanvasLayer/GameOver".visible = true
+			$AnimationPlayer.play("sinkingIsland")
 			
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "sinkingIsland":
+		get_tree().change_scene_to_file("res://Scenes/enter_name.tscn")

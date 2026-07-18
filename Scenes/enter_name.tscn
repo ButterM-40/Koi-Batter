@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://qppv04bd88fe"]
+
+[ext_resource type="FontFile" uid="uid://csllkmo66ufvf" path="res://Assets/editundo.ttf" id="1_6ay1b"]
+[ext_resource type="Script" uid="uid://c54dbcjlppw38" path="res://Scenes/end_score.gd" id="2_p6lae"]
+[ext_resource type="Script" uid="uid://qfknsjr2ljbn" path="res://Scenes/name.gd" id="3_p6lae"]
+[ext_resource type="Texture2D" uid="uid://cq4875cln3bq2" path="res://Assets/fish2-Sheet.png" id="4_p67qx"]
+
+[node name="enterName" type="Node2D" unique_id=1153964625]
+
+[node name="yourScoreis" type="RichTextLabel" parent="." unique_id=490973188]
+offset_left = 286.0
+offset_top = 182.0
+offset_right = 664.0
+offset_bottom = 222.0
+theme_override_fonts/normal_font = ExtResource("1_6ay1b")
+theme_override_font_sizes/normal_font_size = 42
+text = "Your Score Is:"
+horizontal_alignment = 1
+
+[node name="EndScore" type="RichTextLabel" parent="." unique_id=463252481]
+offset_left = 258.0
+offset_top = 223.0
+offset_right = 698.0
+offset_bottom = 278.0
+theme_override_fonts/normal_font = ExtResource("1_6ay1b")
+theme_override_font_sizes/normal_font_size = 60
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("2_p6lae")
+
+[node name="EnterName" type="RichTextLabel" parent="." unique_id=1366641186]
+offset_left = 288.0
+offset_top = 316.0
+offset_right = 681.0
+offset_bottom = 382.0
+theme_override_fonts/normal_font = ExtResource("1_6ay1b")
+theme_override_font_sizes/normal_font_size = 42
+text = "Enter your name:"
+horizontal_alignment = 1
+
+[node name="Name" type="Control" parent="." unique_id=629258411]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_p6lae")
+
+[node name="LineEdit" type="LineEdit" parent="Name" unique_id=1632586126]
+layout_mode = 0
+offset_left = 319.0
+offset_top = 366.0
+offset_right = 644.0
+offset_bottom = 447.0
+theme_override_fonts/font = ExtResource("1_6ay1b")
+theme_override_font_sizes/font_size = 42
+alignment = 1
+max_length = 12
+emoji_menu_enabled = false
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=717964766]
+visible = false
+modulate = Color(0.446777, 0.44677705, 0.44677705, 1)
+z_index = -10
+position = Vector2(527, 29)
+amount = 6
+texture = ExtResource("4_p67qx")
+lifetime = 6.37
+preprocess = 0.49
+speed_scale = 0.37
+lifetime_randomness = 0.32
