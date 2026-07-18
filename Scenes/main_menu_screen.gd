@@ -9,12 +9,12 @@ func _ready():
 	$Exit.visible = false
 	
 func _process(delta):
-	if Input.is_action_just_pressed("Jump"):
+	if Input.is_action_just_pressed("Jump") || Input.is_action_just_pressed("Left"):
 		if Option == 0:
 			Option =2
 		else:
 			Option -=1	
-	if Input.is_action_just_pressed("Down"):
+	if Input.is_action_just_pressed("Down") || Input.is_action_just_pressed("Right"):
 		if Option == 2:
 			Option =0
 		else:
