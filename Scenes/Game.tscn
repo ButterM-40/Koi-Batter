@@ -377,15 +377,18 @@ texture = ExtResource("2_gl6un")
 [node name="Strings" type="Node" parent="." unique_id=1705686334]
 
 [node name="StageString2" parent="Strings" unique_id=1455923313 instance=ExtResource("3_j5yw3")]
+z_index = 10
 position = Vector2(857, 337)
 scale = Vector2(4, 4)
 flip = true
 
 [node name="StageString" parent="Strings" unique_id=1508800955 instance=ExtResource("3_j5yw3")]
+z_index = 10
 position = Vector2(174, 316)
 scale = Vector2(4, 4)
 
 [node name="fluid" type="Node2D" parent="." unique_id=1565804439]
+z_index = 50
 scale = Vector2(3, 3)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="fluid" unique_id=523950853]

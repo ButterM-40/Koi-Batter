@@ -1,3 +1,111 @@
 [gd_scene format=3 uid="uid://cepcows5kag35"]
 
+[ext_resource type="FontFile" uid="uid://csllkmo66ufvf" path="res://Assets/editundo.ttf" id="1_8gbba"]
+[ext_resource type="Texture2D" uid="uid://crhhrn26tpa5i" path="res://Assets/shop.png" id="2_jjvhh"]
+[ext_resource type="Texture2D" uid="uid://72y3hsdw5tqv" path="res://Assets/stage.png" id="3_kry3j"]
+[ext_resource type="Texture2D" uid="uid://bqp0qecp14b5w" path="res://Assets/fahne-Sheet.png" id="4_jjvhh"]
+[ext_resource type="Texture2D" uid="uid://bcxkjvh2022id" path="res://Assets/batter-Sheet.png" id="5_kry3j"]
+[ext_resource type="Script" uid="uid://boufcvo0t5gor" path="res://Scenes/main_menu_screen.gd" id="6_hptm8"]
+[ext_resource type="Texture2D" uid="uid://cynnx71n1qjcs" path="res://Assets/menu/mainmenu.jpg" id="6_ynf5e"]
+[ext_resource type="Texture2D" uid="uid://d3m6vf3t68whs" path="res://Assets/menu/option1.png" id="7_hptm8"]
+[ext_resource type="Texture2D" uid="uid://cwdl6jp0tg6nw" path="res://Assets/menu/option2.png" id="8_d1ilt"]
+[ext_resource type="Texture2D" uid="uid://cgpnhuehxr52w" path="res://Assets/menu/option3.png" id="9_6iyac"]
+
 [node name="Node2D" type="Node2D" unique_id=978064062]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=329383383]
+visible = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1241564089]
+offset_left = 163.0
+offset_top = 148.0
+offset_right = 527.0
+offset_bottom = 362.0
+theme_override_fonts/normal_font = ExtResource("1_8gbba")
+theme_override_font_sizes/normal_font_size = 46
+text = "START GAME
+
+HighScore Board
+
+Exit"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer" unique_id=1673193323]
+offset_left = 563.0
+offset_top = 26.0
+offset_right = 1587.0
+offset_bottom = 240.0
+theme_override_colors/default_color = Color(0.67481464, 0.67481464, 0.6748146, 1)
+theme_override_fonts/normal_font = ExtResource("1_8gbba")
+theme_override_font_sizes/normal_font_size = 46
+text = "Programming: Butter
+Art: Roburab
+Music: Spore"
+
+[node name="Title" type="RichTextLabel" parent="CanvasLayer" unique_id=660173352]
+offset_left = 41.0
+offset_top = 25.0
+offset_right = 213.0
+offset_bottom = 121.0
+theme_override_fonts/normal_font = ExtResource("1_8gbba")
+theme_override_font_sizes/normal_font_size = 90
+text = "KOI"
+
+[node name="Title2" type="RichTextLabel" parent="CanvasLayer" unique_id=301801297]
+offset_left = 180.0
+offset_top = 25.0
+offset_right = 481.0
+offset_bottom = 121.0
+theme_override_colors/default_color = Color(0.99999994, 0.5493949, 0.30069685, 1)
+theme_override_fonts/normal_font = ExtResource("1_8gbba")
+theme_override_font_sizes/normal_font_size = 90
+text = "BATTER"
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1123678560]
+visible = false
+scale = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=388766836]
+modulate = Color(0.4149491, 0.4149491, 0.4149491, 1)
+position = Vector2(154.25, 103.25)
+texture = ExtResource("2_jjvhh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D" unique_id=1435011314]
+modulate = Color(0.5489626, 0.5489626, 0.54896253, 1)
+position = Vector2(198, 162.25)
+texture = ExtResource("3_kry3j")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D" unique_id=1565834628]
+modulate = Color(0.5370113, 0.5370113, 0.5370113, 1)
+position = Vector2(218.25, 103.25)
+texture = ExtResource("4_jjvhh")
+hframes = 8
+
+[node name="Sprite2D5" type="Sprite2D" parent="Node2D" unique_id=1087208472]
+visible = false
+modulate = Color(0.5370113, 0.5370113, 0.5370113, 1)
+position = Vector2(98.75, 103.25)
+texture = ExtResource("4_jjvhh")
+hframes = 8
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D" unique_id=259173847]
+position = Vector2(88.5, 109)
+texture = ExtResource("5_kry3j")
+hframes = 19
+
+[node name="MainMenuScreen" type="Node2D" parent="." unique_id=978038241]
+position = Vector2(512, 448)
+script = ExtResource("6_hptm8")
+
+[node name="Arcade" type="Sprite2D" parent="MainMenuScreen" unique_id=1298346087]
+texture = ExtResource("6_ynf5e")
+
+[node name="StartGame" type="Sprite2D" parent="MainMenuScreen" unique_id=388629524]
+texture = ExtResource("7_hptm8")
+
+[node name="Scoreboard" type="Sprite2D" parent="MainMenuScreen" unique_id=1159457237]
+visible = false
+texture = ExtResource("8_d1ilt")
+
+[node name="Exit" type="Sprite2D" parent="MainMenuScreen" unique_id=1954197690]
+visible = false
+texture = ExtResource("9_6iyac")
