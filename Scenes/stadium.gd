@@ -3,6 +3,7 @@ extends StaticBody2D
 @onready var floor_anim : AnimatedSprite2D = $FloorDetection/AnimatedSprite2D
 @export var StringsStage : Node
 @onready var string_children_count : int = 0
+@onready var audio_fish : AudioStreamPlayer2D = $FishSound
 var is_ending = false
 
 func _ready() -> void:
@@ -11,6 +12,7 @@ func _ready() -> void:
 
 func _on_floor_detection_area_entered(area: Area2D) -> void:
 	if area.is_in_group("fish"):
+		$FishSound.play()
 		var fish_node = area.owner
 		if fish_node and fish_node.is_hit:
 			return
