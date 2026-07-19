@@ -22,7 +22,7 @@ func _process(delta):
 		else:
 			Option +=1	
 	
-	if Input.is_action_just_pressed("Hit"):
+	if Input.is_action_just_pressed("Hit")||Input.is_action_just_pressed("Enter"):
 		$AudioStreamPlayer2D.play()
 		if Option == 0:
 			get_tree().change_scene_to_file("res://Scenes/Game.tscn")
