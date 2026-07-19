@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://701h21wy471f"]
 
 [ext_resource type="Script" uid="uid://3asrpwwjfdln" path="res://Components/PlayerBatter/batter.gd" id="1_6ltoc"]
+[ext_resource type="Texture2D" uid="uid://d1diw5xi3ydqs" path="res://Assets/batter-Shee2t.png" id="2_7mu2e"]
 [ext_resource type="Texture2D" uid="uid://bcxkjvh2022id" path="res://Assets/batter-Sheet.png" id="2_mbgni"]
 [ext_resource type="Texture2D" uid="uid://00ugxoa6opdh" path="res://Assets/swing-Sheet.png" id="3_mbgni"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yog0a"]
+atlas = ExtResource("2_7mu2e")
+region = Rect2(50, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7mu2e"]
 atlas = ExtResource("2_mbgni")
@@ -64,8 +69,20 @@ region = Rect2(500, 0, 50, 50)
 atlas = ExtResource("2_mbgni")
 region = Rect2(550, 0, 50, 50)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkyek"]
+atlas = ExtResource("2_7mu2e")
+region = Rect2(0, 0, 50, 50)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_tomj7"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yog0a")
+}],
+"loop": 1,
+"name": &"gameover",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7mu2e")
@@ -153,6 +170,14 @@ animations = [{
 "loop": 1,
 "name": &"run",
 "speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkyek")
+}],
+"loop": 1,
+"name": &"slide",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -255,10 +280,8 @@ JUMP_VELOCITY = -800.0
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="." unique_id=422305795]
 position = Vector2(1, -10)
 sprite_frames = SubResource("SpriteFrames_tomj7")
-animation = &"hit"
+animation = &"slide"
 autoplay = "stand"
-frame = 3
-frame_progress = 0.5070266
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=662044730]
 shape = SubResource("CapsuleShape2D_67aiy")
