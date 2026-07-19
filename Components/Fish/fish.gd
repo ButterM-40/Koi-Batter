@@ -11,7 +11,9 @@ extends Node2D
 @export var knockback_force: float = 400.0
 @export var knockback_upward_bias: float = -0.3
 @onready var Hitbox : Area2D = $AnimatedSprite2D/Area2D
+@onready var SteamPlayer : AudioStreamPlayer2D = $AudioStreamPlayer2D
 
+@onready var sound = preload("res://Audio/SFX/SFX_hitSuccess.wav")
 var hits_taken: int = 0
 var rotation_speed: float = 0.0
 var start_x: float = 0.0
@@ -99,6 +101,7 @@ func _on_hit_by_bat(bat: Area2D) -> void:
 	is_hit = true
 
 	fish_animated.play("fish_hit" + str(fish_variant))
+	SteamPlayer.play()
 
 	if fish_variant == 0 and hits_taken == 0:
 		hits_taken = 1

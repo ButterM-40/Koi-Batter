@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cq4875cln3bq2" path="res://Assets/fish2-Sheet.png" id="7_f75o6"]
 [ext_resource type="Texture2D" uid="uid://c4f4ojitdsqng" path="res://Assets/fish3-Sheet.png" id="8_is5og"]
 [ext_resource type="Texture2D" uid="uid://c1yx02u2ndl8" path="res://Assets/fish1appear-Sheet.png" id="9_uc2g4"]
+[ext_resource type="AudioStream" uid="uid://dmu1hiib8mbne" path="res://Audio/SFX/SFX_hitSuccess.wav" id="10_owc2g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0nqp"]
 atlas = ExtResource("2_il3u3")
@@ -573,6 +574,7 @@ libraries/ = SubResource("AnimationLibrary_t0nqp")
 wait_time = 3.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=506396504]
+stream = ExtResource("10_owc2g")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1043688902]
 
