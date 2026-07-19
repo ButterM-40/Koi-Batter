@@ -447,7 +447,7 @@ animations = [{
 position = Vector2(514, 366)
 scale = Vector2(3, 3)
 
-[node name="Stadium" type="StaticBody2D" parent="." unique_id=657419564 node_paths=PackedStringArray("StringsStage")]
+[node name="Stadium" type="StaticBody2D" parent="." unique_id=657419564 node_paths=PackedStringArray("StringsStage") groups=["island"]]
 position = Vector2(514, 667)
 scale = Vector2(3, 3)
 script = ExtResource("2_2irst")
@@ -630,8 +630,6 @@ theme_override_font_sizes/normal_font_size = 50
 text = "0"
 horizontal_alignment = 1
 script = ExtResource("13_3cx6b")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=546743254]
 
 [connection signal="area_entered" from="Stadium/FloorDetection" to="Stadium" method="_on_floor_detection_area_entered"]
 [connection signal="animation_finished" from="Stadium/AnimationPlayer" to="Stadium" method="_on_animation_player_animation_finished"]

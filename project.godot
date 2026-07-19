@@ -39,6 +39,7 @@ enabled=PackedStringArray("res://addons/talo/plugin.cfg")
 bat="Bat Hitbox"
 fish=""
 Player=""
+island=""
 
 [input]
 

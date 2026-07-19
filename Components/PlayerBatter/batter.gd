@@ -151,8 +151,14 @@ func _on_animation_player_animation_finished() -> void:
 		is_sliding = false
 		is_hit_right = false
 		is_hit_left = false
+	if animationplayer.animation == "hurt" and !is_hurt:
+		animation_tree(Input.get_axis("Left", "Right"))
 func N() -> void:
 	animationplayer.play("n")
 func game_over() -> void:
 	is_game_over = true
 	animationplayer.play("gameover")
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	get_tree().call_group("island", "player_fell")
