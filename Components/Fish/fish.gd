@@ -131,3 +131,8 @@ func _on_hit_by_bat(bat: Area2D) -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player") and hits_taken != 1:
+		body.take_hit(global_position)
+		pass # Replace with function body.

@@ -443,7 +443,7 @@ animations = [{
 
 [node name="Game" type="Node2D" unique_id=1357558454]
 
-[node name="Batter" parent="." unique_id=1129787818 groups=["Player"] instance=ExtResource("1_gl6un")]
+[node name="Batter" parent="." unique_id=1129787818 instance=ExtResource("1_gl6un")]
 position = Vector2(514, 366)
 scale = Vector2(3, 3)
 

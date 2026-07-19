@@ -175,7 +175,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gkyek")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"slide",
 "speed": 5.0
 }, {
@@ -189,6 +189,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_67aiy"]
+radius = 6.0
+height = 22.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p2jag"]
 atlas = ExtResource("3_mbgni")
@@ -273,17 +275,18 @@ animations = [{
 radius = 15.03233
 height = 32.058594
 
-[node name="Batter" type="CharacterBody2D" unique_id=1129787818]
+[node name="Batter" type="CharacterBody2D" unique_id=1129787818 groups=["Player"]]
 script = ExtResource("1_6ltoc")
 JUMP_VELOCITY = -800.0
 
 [node name="AnimationPlayer" type="AnimatedSprite2D" parent="." unique_id=422305795]
 position = Vector2(1, -10)
 sprite_frames = SubResource("SpriteFrames_tomj7")
-animation = &"slide"
+animation = &"hurt"
 autoplay = "stand"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=662044730]
+position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_67aiy")
 
 [node name="PlayerEffects" type="AudioStreamPlayer2D" parent="." unique_id=34666897]
@@ -310,6 +313,28 @@ rotation = -2.9670596
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatLeft" unique_id=649370628]
 position = Vector2(11.644045, -3.0685868)
+rotation = 1.4741651
+shape = SubResource("CapsuleShape2D_rghuq")
+debug_color = Color(0.9499268, 0.22636533, 0, 0.41960785)
+
+[node name="SlideRight" type="Area2D" parent="." unique_id=1365399988 groups=["bat"]]
+unique_name_in_owner = true
+position = Vector2(-5.9999995, 10)
+scale = Vector2(1.0276176, 0.42218372)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlideRight" unique_id=914523738]
+position = Vector2(11, -2)
+rotation = 1.4741651
+shape = SubResource("CapsuleShape2D_rghuq")
+debug_color = Color(0.9499268, 0.22636533, 0, 0.41960785)
+
+[node name="SlideLeft" type="Area2D" parent="." unique_id=591063612 groups=["bat"]]
+unique_name_in_owner = true
+position = Vector2(-20, 10)
+scale = Vector2(1.0276176, 0.42218372)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlideLeft" unique_id=665971747]
+position = Vector2(11, -2)
 rotation = 1.4741651
 shape = SubResource("CapsuleShape2D_rghuq")
 debug_color = Color(0.9499268, 0.22636533, 0, 0.41960785)
