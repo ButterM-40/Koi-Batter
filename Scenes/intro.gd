@@ -1,7 +1,7 @@
 extends Node2D
 
 func _unhandled_input(event):
-	if event is InputEventKey:
+	if event is InputEventKey || event is InputEventJoypadButton:
 		get_tree().change_scene_to_file("res://Scenes/main.tscn")
 
 

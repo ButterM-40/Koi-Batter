@@ -13,7 +13,8 @@ config_version=5
 config/name="Koi Batter"
 run/main_scene="uid://d07iqds3ef47x"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://Assets/icon.svg"
+config/icon="uid://knpld8i18ek5"
+config/windows_native_icon="res://Assets/fishbatter.ico"
 
 [audio]
 
