@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bn5g0ub82bckd" path="res://Assets/fishrain3.png" id="5_qwyui"]
 [ext_resource type="Texture2D" uid="uid://bml6ts0vok4tr" path="res://Assets/fishrain2.png" id="6_xgdwl"]
 [ext_resource type="Texture2D" uid="uid://dv5542igj2bi7" path="res://Assets/fishrain4.png" id="7_qffqf"]
+[ext_resource type="AudioStream" uid="uid://dc26kji5bqweu" path="res://Audio/SFX/sfx_uiMenu_Blip1.wav" id="8_qwyui"]
+[ext_resource type="AudioStream" uid="uid://cqgfyffvtaguu" path="res://Audio/MUSIC/KoiBatter_MainTheme.wav" id="9_xgdwl"]
 
 [node name="enterName" type="Node2D" unique_id=1153964625]
 
@@ -41,6 +43,17 @@ theme_override_font_sizes/normal_font_size = 42
 text = "Enter your name:"
 horizontal_alignment = 1
 
+[node name="EnterName2" type="RichTextLabel" parent="." unique_id=36919757]
+offset_left = 227.0
+offset_top = 481.0
+offset_right = 762.90906
+offset_bottom = 523.0
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("1_6ay1b")
+theme_override_font_sizes/normal_font_size = 42
+text = "Click Enter to Submit"
+horizontal_alignment = 1
+
 [node name="Name" type="Control" parent="." unique_id=629258411]
 layout_mode = 3
 anchors_preset = 0
@@ -59,6 +72,9 @@ theme_override_font_sizes/font_size = 42
 alignment = 1
 max_length = 12
 emoji_menu_enabled = false
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Name" unique_id=2125976644]
+stream = ExtResource("8_qwyui")
 
 [node name="fishfall" type="Node2D" parent="." unique_id=750108665]
 
@@ -139,3 +155,9 @@ angle_min = -112.8
 angle_max = 156.1
 scale_amount_min = 0.7
 scale_amount_max = 4.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="." unique_id=1544276985]
+stream = ExtResource("9_xgdwl")
+autoplay = true
+
+[connection signal="text_changed" from="Name/LineEdit" to="Name" method="_on_line_edit_text_changed"]

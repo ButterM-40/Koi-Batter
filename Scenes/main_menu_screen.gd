@@ -27,7 +27,7 @@ func _process(delta):
 		if Option == 0:
 			get_tree().change_scene_to_file("res://Scenes/Game.tscn")
 		if Option == 1:
-			#get_tree().change_scene_to_file("???")
+			get_tree().change_scene_to_file("res://Scenes/highscore.tscn")
 			pass
 		if Option == 2:
 			get_tree().quit()

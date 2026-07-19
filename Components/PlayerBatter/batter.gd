@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var animationplayer = $AnimationPlayer 
 @onready var player_sfx = $PlayerEffects
 
+var is_game_over = false
 var is_hit : bool = false
 var is_hit_right : bool = false
 var is_hit_left : bool = false
@@ -29,7 +30,12 @@ func _ready() -> void:
 	#bat_hitbox_right.set_deferred("monitorable", false)
 	#bat_hitbox_left.set_deferred("monitorable", false)
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	if is_game_over:
+		velocity.x = 0
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+		move_and_slide()
+		return
 	if not is_on_floor():
 		var gravity_this_frame = get_gravity() * delta
 		if is_hurt:
@@ -147,3 +153,6 @@ func _on_animation_player_animation_finished() -> void:
 		is_hit_left = false
 func N() -> void:
 	animationplayer.play("n")
+func game_over() -> void:
+	is_game_over = true
+	animationplayer.play("gameover")

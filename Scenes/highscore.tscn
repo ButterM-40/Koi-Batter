@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://vy75isp2qfss"]
+
+[ext_resource type="Script" uid="uid://c3883epinyuox" path="res://Scenes/highscore.gd" id="1_8woqb"]
+[ext_resource type="PackedScene" uid="uid://cvuwvgf7paryw" path="res://Scenes/row.tscn" id="1_33col"]
+[ext_resource type="FontFile" uid="uid://csllkmo66ufvf" path="res://Assets/editundo.ttf" id="1_od77v"]
+[ext_resource type="Texture2D" uid="uid://bx5iaa8y7fuby" path="res://Assets/fishrain1.png" id="4_f71gs"]
+[ext_resource type="Texture2D" uid="uid://bn5g0ub82bckd" path="res://Assets/fishrain3.png" id="5_6anfa"]
+[ext_resource type="Texture2D" uid="uid://bml6ts0vok4tr" path="res://Assets/fishrain2.png" id="6_gn12i"]
+[ext_resource type="Texture2D" uid="uid://dv5542igj2bi7" path="res://Assets/fishrain4.png" id="7_i8w4x"]
+[ext_resource type="AudioStream" uid="uid://cqgfyffvtaguu" path="res://Audio/MUSIC/KoiBatter_MainTheme.wav" id="8_8woqb"]
+
+[node name="Leaderboard" type="Control" unique_id=922721168]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8woqb")
+
+[node name="Entries" type="VBoxContainer" parent="." unique_id=207839015]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 100.0
+offset_right = 1021.0
+offset_bottom = 801.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="Row" parent="Entries" unique_id=1919942827 instance=ExtResource("1_33col")]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=490973188]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 48.0
+offset_right = 664.0
+offset_bottom = 88.0
+theme_override_fonts/normal_font = ExtResource("1_od77v")
+theme_override_font_sizes/normal_font_size = 42
+text = "Leaderboard"
+horizontal_alignment = 1
+
+[node name="EnterLeave" type="RichTextLabel" parent="." unique_id=1365626212]
+layout_mode = 0
+offset_left = 319.0
+offset_top = 811.0
+offset_right = 697.0
+offset_bottom = 851.0
+theme_override_fonts/normal_font = ExtResource("1_od77v")
+theme_override_font_sizes/normal_font_size = 42
+text = "Enter to leave"
+horizontal_alignment = 1
+
+[node name="fishfall" type="Node2D" parent="." unique_id=750108665]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="fishfall" unique_id=717964766]
+modulate = Color(0.446777, 0.44677705, 0.44677705, 1)
+z_index = -10
+position = Vector2(295, -191)
+amount = 5
+texture = ExtResource("4_f71gs")
+lifetime = 9.0
+preprocess = 0.49
+speed_scale = 0.37
+randomness = 0.7
+emission_shape = 3
+emission_rect_extents = Vector2(500, 1)
+spread = 78.61
+gravity = Vector2(200, 980)
+angular_velocity_min = -527.78
+angular_velocity_max = -137.42
+scale_amount_min = 0.7
+scale_amount_max = 4.0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="fishfall" unique_id=1643755372]
+modulate = Color(0.446777, 0.44677705, 0.44677705, 1)
+z_index = -10
+position = Vector2(435, -106)
+amount = 5
+texture = ExtResource("5_6anfa")
+lifetime = 9.0
+preprocess = 0.49
+speed_scale = 0.37
+randomness = 0.45
+emission_shape = 3
+emission_rect_extents = Vector2(500, 1)
+gravity = Vector2(200, 980)
+angular_velocity_min = -562.48
+angular_velocity_max = -102.72
+angle_min = -208.2
+angle_max = 112.8
+scale_amount_max = 3.0
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="fishfall" unique_id=1573792049]
+modulate = Color(0.446777, 0.44677705, 0.44677705, 1)
+z_index = -10
+position = Vector2(175, -90)
+amount = 6
+texture = ExtResource("6_gn12i")
+lifetime = 9.0
+preprocess = 0.49
+speed_scale = 0.37
+randomness = 0.58
+emission_shape = 3
+emission_rect_extents = Vector2(500, 1)
+gravity = Vector2(200, 980)
+angular_velocity_min = -631.87
+angular_velocity_max = -198.14
+angle_min = -149.1
+angle_max = 216.9
+scale_amount_min = 0.7
+scale_amount_max = 4.0
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="fishfall" unique_id=2108005110]
+modulate = Color(0.446777, 0.44677705, 0.44677705, 1)
+z_index = -10
+position = Vector2(674, -90)
+amount = 5
+texture = ExtResource("7_i8w4x")
+lifetime = 9.0
+preprocess = 0.49
+speed_scale = 0.37
+randomness = 0.6
+emission_shape = 3
+emission_rect_extents = Vector2(500, 1)
+gravity = Vector2(200, 980)
+angular_velocity_min = -484.4
+angular_velocity_max = -102.72
+angle_min = -112.8
+angle_max = 156.1
+scale_amount_min = 0.7
+scale_amount_max = 4.0
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="." unique_id=1519359728]
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="." unique_id=77366356]
+stream = ExtResource("8_8woqb")
+autoplay = true
