@@ -25,3 +25,7 @@ func get_current_score() -> int:
 
 func _on_line_edit_text_changed(new_text: String) -> void:
 	sound.play()
+
+func _process(delta):	
+	if Input.is_action_just_pressed("Hit"):
+		get_tree().change_scene_to_file("res://Scenes/Game.tscn")
