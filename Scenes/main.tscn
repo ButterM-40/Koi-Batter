@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://d3m6vf3t68whs" path="res://Assets/menu/option1.png" id="7_hptm8"]
 [ext_resource type="Texture2D" uid="uid://cwdl6jp0tg6nw" path="res://Assets/menu/option2.png" id="8_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://cgpnhuehxr52w" path="res://Assets/menu/option3.png" id="9_6iyac"]
+[ext_resource type="AudioStream" uid="uid://dc26kji5bqweu" path="res://Audio/SFX/sfx_uiMenu_Blip1.wav" id="11_d1ilt"]
 
 [node name="Node2D" type="Node2D" unique_id=978064062]
 
@@ -109,3 +110,6 @@ texture = ExtResource("8_d1ilt")
 [node name="Exit" type="Sprite2D" parent="MainMenuScreen" unique_id=1954197690]
 visible = false
 texture = ExtResource("9_6iyac")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MainMenuScreen" unique_id=875999737]
+stream = ExtResource("11_d1ilt")

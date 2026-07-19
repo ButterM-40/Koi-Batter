@@ -10,17 +10,20 @@ func _ready():
 	
 func _process(delta):
 	if Input.is_action_just_pressed("Jump") || Input.is_action_just_pressed("Left"):
+		$AudioStreamPlayer2D.play()
 		if Option == 0:
 			Option =2
 		else:
 			Option -=1	
 	if Input.is_action_just_pressed("Down") || Input.is_action_just_pressed("Right"):
+		$AudioStreamPlayer2D.play()
 		if Option == 2:
 			Option =0
 		else:
 			Option +=1	
 	
 	if Input.is_action_just_pressed("Hit"):
+		$AudioStreamPlayer2D.play()
 		if Option == 0:
 			get_tree().change_scene_to_file("res://Scenes/Game.tscn")
 		if Option == 1:
