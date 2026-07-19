@@ -12,6 +12,8 @@ extends CharacterBody2D
 @onready var animationplayer = $AnimationPlayer 
 @onready var player_sfx = $PlayerEffects
 
+var Entity = preload("res://Scenes/slideeffect.tscn")
+
 var is_game_over = false
 var is_hit : bool = false
 var is_hit_right : bool = false
@@ -101,10 +103,18 @@ func action_hit(face) -> void:
 	$EffectSprite2D.play("hitR")
 	
 func action_slide_hit(face) -> void:
+	#add cloud
+	var instance = Entity.instantiate()
+	instance.position = position
+	
+		
 	if face:
 		is_hit_left = true
+		instance.hflip = 0
+		
 	else:
 		is_hit_right = true
+		instance.hflip = 1
 
 func action_slide(face: bool) -> void:
 	is_sliding = true
