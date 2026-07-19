@@ -26,20 +26,20 @@ region = Rect2(224, 0, 112, 112)
 atlas = ExtResource("2_il3u3")
 region = Rect2(336, 0, 112, 112)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ovaj"]
-atlas = ExtResource("2_il3u3")
+[sub_resource type="AtlasTexture" id="AtlasTexture_owc2g"]
+atlas = ExtResource("9_uc2g4")
 region = Rect2(0, 0, 112, 112)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_owi52"]
-atlas = ExtResource("2_il3u3")
+[sub_resource type="AtlasTexture" id="AtlasTexture_f75o6"]
+atlas = ExtResource("9_uc2g4")
 region = Rect2(112, 0, 112, 112)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s07si"]
-atlas = ExtResource("2_il3u3")
+[sub_resource type="AtlasTexture" id="AtlasTexture_is5og"]
+atlas = ExtResource("9_uc2g4")
 region = Rect2(224, 0, 112, 112)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lujjo"]
-atlas = ExtResource("2_il3u3")
+[sub_resource type="AtlasTexture" id="AtlasTexture_uc2g4"]
+atlas = ExtResource("9_uc2g4")
 region = Rect2(336, 0, 112, 112)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tn1p7"]
@@ -239,16 +239,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1ovaj")
+"texture": SubResource("AtlasTexture_owc2g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_owi52")
+"texture": SubResource("AtlasTexture_f75o6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s07si")
+"texture": SubResource("AtlasTexture_is5og")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lujjo")
+"texture": SubResource("AtlasTexture_uc2g4")
 }],
 "loop": 1,
 "name": &"appear1",
@@ -551,7 +551,7 @@ effect_animated = NodePath("AnimationPlayer")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1772974264]
 modulate = Color(1, 1, 1, 0)
 sprite_frames = SubResource("SpriteFrames_67aiy")
-animation = &"fish_hit0"
+animation = &"fish_jump2"
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=143011744 groups=["fish"]]
 
