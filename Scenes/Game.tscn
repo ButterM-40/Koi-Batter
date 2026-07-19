@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c4y17w4iahaad" path="res://Components/Fish/spawner.tscn" id="4_kldst"]
 [ext_resource type="AudioStream" uid="uid://cmev88kikmt0w" path="res://Audio/MUSIC/koibatter_demotheme.wav" id="5_b2bpf"]
 [ext_resource type="Texture2D" uid="uid://k5hiu1bv2qyu" path="res://Assets/blubber-Sheet.png" id="7_71axn"]
-[ext_resource type="AudioStream" uid="uid://cjfupkmxg5xse" path="res://Audio/SFX/SFX_hit.wav" id="7_wxwew"]
+[ext_resource type="AudioStream" uid="uid://dmu1hiib8mbne" path="res://Audio/SFX/SFX_hitSuccess.wav" id="7_wxwew"]
 [ext_resource type="Script" uid="uid://dliiuwxh68w5s" path="res://Scenes/score.gd" id="9_bf53h"]
 [ext_resource type="FontFile" uid="uid://csllkmo66ufvf" path="res://Assets/editundo.ttf" id="10_dahhg"]
 [ext_resource type="Script" uid="uid://c54dbcjlppw38" path="res://Scenes/end_score.gd" id="13_3cx6b"]
@@ -504,6 +504,7 @@ libraries/ = SubResource("AnimationLibrary_wxwew")
 
 [node name="FishSound" type="AudioStreamPlayer2D" parent="Stadium" unique_id=111194462]
 stream = ExtResource("7_wxwew")
+pitch_scale = 0.35
 
 [node name="Strings" type="Node" parent="." unique_id=1705686334]
 
