@@ -12,7 +12,7 @@ extends CharacterBody2D
 @onready var animationplayer = $AnimationPlayer 
 @onready var player_sfx = $PlayerEffects
 
-var Entity = preload("res://Scenes/slideeffect.tscn")
+@onready var Entity = preload("res://Scenes/slideeffect.tscn")
 
 var is_game_over = false
 var is_hit : bool = false
@@ -21,6 +21,7 @@ var is_hit_left : bool = false
 var is_sfx : bool = false
 var is_sliding : bool = false
 var is_hurt : bool = false
+var SPEED2 = 300.0
 #Audio Preloads
 var jump_audio = preload("res://Audio/SFX/SFX_jump.wav")
 var bar_swings = [
@@ -64,7 +65,7 @@ func _physics_process(delta: float) -> void:
 	elif direction:
 		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, SPEED2)
 	if !is_hit and !is_sliding and !is_hurt:
 		animation_tree(direction)
 		
@@ -103,24 +104,31 @@ func action_hit(face) -> void:
 	$EffectSprite2D.play("hitR")
 	
 func action_slide_hit(face) -> void:
-	#add cloud
-	var instance = Entity.instantiate()
-	instance.position = position
-	
-		
 	if face:
 		is_hit_left = true
-		instance.hflip = 0
 		
 	else:
 		is_hit_right = true
-		instance.hflip = 1
+
 
 func action_slide(face: bool) -> void:
 	is_sliding = true
 	var dir := -1.0 if face else 1.0
 	velocity.x = dir * SLIDE_SPEED
 	animationplayer.play("slide")
+	
+	var instance = Entity.instantiate()
+	get_parent().add_child(instance)
+	instance.position = position
+	
+	if face:
+		is_hit_left = true
+		instance.get_node("AnimatedSprite2D").flip_h = true
+	else:
+		is_hit_right = true
+		instance.get_node("AnimatedSprite2D").flip_h = false
+	
+	instance.start()
 	action_slide_hit(face)
 	
 func take_hit(source_position: Vector2) -> void:
